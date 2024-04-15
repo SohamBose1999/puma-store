@@ -1,108 +1,97 @@
-
-const wrapper = document.querySelector(".sliderWrapper")
-const menuItems = document.querySelectorAll(".menuItem")
+const wrapper = document.querySelector(".sliderWrapper");
+const menuItems = document.querySelectorAll(".menuItem");
 
 const products = [
-    {
-      id: 1,
-      title: "ADIDAS",
-      price: "₹ 2400",
-      colors: [
-        {
-          code: "black",
-          img: "./img/adida3.png",
-        },
-        {
-          code: "darkblue",
-          img: "./img/adida_blue1-removebg-preview.png",
-        },
-      ],
-    },
-    {
-      id: 2,
-      title: "NIKE",
-      price: "₹ 1500",
-      colors: [
-        {
-          code: "lightgray",
-          img: "./img/nike lightgray.png",
-        },
-        {
-          code: "green",
-          img: "./img/green nike.png",
-        },
-      ],
-    },
-    {
-      id: 3,
-      title: "WOODLAND",
-      price: "₹ 109",
-      colors: [
-        {
-          code: "lightgray",
-          img: "./img/blazer.png",
-        },
-        {
-          code: "green",
-          img: "./img/blazer2.png",
-        },
-      ],
-    },
-    {
-      id: 4,
-      title: "LEE COOPER",
-      price: 129,
-      colors: [
-        {
-          code: "black",
-          img: "./img/crater.png",
-        },
-        {
-          code: "lightgray",
-          img: "./img/crater2.png",
-        },
-      ],
-    },
-    
-      ]
-      
+  {
+    id: 1,
+    title: "ADIDAS",
+    price: 2500,
+    colors: [
+      {
+        code: "black",
+        img: "./img/adida3.png",
+      },
+      {
+        code: "darkblue",
+        img: "./img/adida2.png",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "NIKE",
+    price: 1500,
+    colors: [
+      {
+        code: "lightgray",
+        img: "./img/NikeShoeWhite.png",
+      },
+      {
+        code: "green",
+        img: "./img/NikeShoeGreen1.png",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "WOODLAND",
+    price: 1700,
+    colors: [
+      {
+        code: "lightgray",
+        img: "./img/WoodlandShoe.jpg",
+      },
+      {
+        code: "green",
+        img: "./img/WoodlandShoe3.jpg",
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "LEE COOPER",
+    price: 1400,
+    colors: [
+      {
+        code: "black",
+        img: "./img/LeeCooperBlack.jpeg",
+      },
+      {
+        code: "lightgray",
+        img: "./img/leecooperwhite1.jpg",
+      },
+    ],
+  },
+  
+]
 
-
-
-  let choosenProduct = products[0];
+let choosenProduct = products[0];
 
 const currentProductImg = document.querySelector(".productImg");
 const currentProductTitle = document.querySelector(".productTitle");
 const currentProductPrice = document.querySelector(".productPrice");
-const currentProductColors = document.querySelectorAll(".colors");
+const currentProductColors = document.querySelectorAll(".color");
 const currentProductSizes = document.querySelectorAll(".size");
-  
 
+menuItems.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    
+    wrapper.style.transform = `translateX(${-100 * index}vw)`;
 
-menuItems.forEach((item, index)=>{
-    item.addEventListener("click",() => {
-    wrapper.style.transform = `translateX(${-100 * index}vw)`
+    
+    choosenProduct = products[index];
+
    
-
-
-// change the choosen product
-choosenProduct = products[index]
-
-
-
-currentProductTitle.textContent = choosenProduct.title;
-    currentProductPrice.textContent = "" + choosenProduct.price;
+    currentProductTitle.textContent = choosenProduct.title;
+    currentProductPrice.textContent = "₹" + choosenProduct.price;
     currentProductImg.src = choosenProduct.colors[0].img;
 
-    //assing new colors
+    
     currentProductColors.forEach((color, index) => {
       color.style.backgroundColor = choosenProduct.colors[index].code;
     });
-
-    });
-  });     
-
-
+  });
+});
 
 currentProductColors.forEach((color, index) => {
   color.addEventListener("click", () => {
@@ -121,24 +110,14 @@ currentProductSizes.forEach((size, index) => {
   });
 });
 
+const productButton = document.querySelector(".productButton");
+const payment = document.querySelector(".payment");
+const close = document.querySelector(".close");
 
-const productButton = document.querySelector(".productButton")
-const payment = document.querySelector(".payment")
-const close = document.querySelector(".close")
+productButton.addEventListener("click", () => {
+  payment.style.display = "flex";
+});
 
-productButton.addEventListener("click",()=>{
-  payment.style.display = "flex"
-})
-
-close.addEventListener("click",()=>{
-  payment.style.display = "none"
-})
-
-// payB.addEventListener("click",()=>{
-//   payment.style.display = "none"
-// })
-
-payment.addEventListener("click",()=>{
+close.addEventListener("click", () => {
   payment.style.display = "none";
-})
-
+});
