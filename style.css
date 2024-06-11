@@ -9,9 +9,12 @@ body {
 }
 
 nav {
-  background-color: #111;
-  color: white;
-  padding: 40px 50px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 20px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .navTop {
@@ -24,7 +27,10 @@ nav {
   display: flex;
 }
 
-
+.navItem img{
+  border-radius: 50%;
+  width: 60px;
+}
 
 
 .p-logo{
@@ -63,7 +69,7 @@ nav {
 .menuItem {
   margin-right: 50px;
   cursor: pointer;
-  color: lightgray;
+  color: rgb(0, 0, 0);
   font-weight: 400;
 }
 
@@ -88,14 +94,15 @@ nav {
 }
 
 .sliderBg {
-  width: 450px;
-  height: 450px;
+  width: 550px;
+  height: 550px;
   border-radius: 50%;
   position: absolute;
 }
 
 .sliderImg {
   z-index: 1;
+  width: 50%;
 }
 
 .sliderTitle {
@@ -113,12 +120,16 @@ nav {
   position: absolute;
   top: 10%;
   left: 10%;
-  font-size: 60px;
+  font-size: 70px;
   font-weight: 300;
   text-align: center;
   color: white;
-  border: 1px solid gray;
+   border-radius: 10px;
   z-index: 1;
+  padding: 10px;
+  background-color: rgba(240, 255, 255, 0.228);
+  font-weight: 700;
+
 }
 
 .buyButton {
@@ -515,8 +526,8 @@ footer {
   }
 
   .sliderBg{
-    width: 100%;
-    height: 100%;
+    width: 85%;
+    height: 90%;
   }
 
   .sliderTitle{
@@ -527,7 +538,7 @@ footer {
     top: unset;
     bottom: -50;
     left: 0;
-    background-color: lightgrey;
+    background-color: rgba(211, 211, 211, 0.323);
   }
 
   .buyButton{
